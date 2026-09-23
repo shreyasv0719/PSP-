@@ -1,0 +1,17 @@
+LAB 7 LOGBOOK - Shreyas Verma - E26B07F0798
+SETUP: clang version installed python3 version installed
+T1: running hello.py created 0 new files
+T1 prediction: ./hello.c will fail and python3 hello.c will fail
+T1: ./hello.c failed because the OS cannot execute the C source file directly ; python3 hello.c failed because Python cannot interpret C syntax
+T1: the extra step in the C workflow is compilation and it produces a machine-code executable
+T1: when I run python3 hello.py the CPU executes python3 ; hello.py is just input data
+T2: the actual Hello string starts at offset 0x4a0 (1184 decimal)
+T2: hello.py contains readable source text, while hello contains binary machine-code bytes plus embedded readable strings
+T2: opening hello in a text editor shows garbage because the executable contains binary bytes that are not meant to be interpreted as readable text
+T3: second C run user time = 0.07s ; Python user time = 2.39s ; ratio = about 34.1x
+T3: my measurement does not support the 50x claim; Python took about 34x the C user time in this run
+T3: ./hello starts as a compiled executable, while python3 hello.py first starts the Python interpreter, which reads and executes the Python source.
+T3: ./hello starts as a compiled executable, while python3 hello.py first starts the Python interpreter, which reads and executes the Python source.
+5000000050000000
+T4: hello is a macOS Mach-O arm64 executable, so it is suitable for the same Apple Silicon Mac. It is not directly suitable for an Intel Mac or Ubuntu ELF server. For Windows with Python installed, send hello.py and run it with Python.
+T5: at -O0, f used 2 add instructions. At -O2, f used 0 add instructions because the compiler simplified x + 1 + 1 into x + 2 and generated a direct calculation. The compiler can do this because the transformation preserves the program's result.

@@ -1,0 +1,27 @@
+LAB 6 LOGBOOK - Shreyas Verma - E26B07F0798
+SETUP: my working directory is /Users/shreyasnverma/nst/labs/lab06-os-and-filesystem
+T1: /bin holds executable programs
+T1: /dev holds device and system resources
+T1: / means root, ~ means home directory, . means current directory
+T1: the OS groups files by directories
+T2 prediction: ./deploy will fail because it does not have execute permission
+T2 prediction: appending after u-w will fail because the owner no longer has write permission
+T2: -rw-r--r-- written in numbers is 644
+T2: ./deploy failed at first because execute permission was missing
+T2: the new policy needed chmod 750
+-rwxr-x---  1 shreyasnverma  staff  36 22 Sep 20:59 deploy
+T3 prediction: ./nst-info will fail because it does not have execute permission
+T3 prediction: adding .py to the name will not change how the OS executes it
+T3: python3 nst-info worked but ./nst-info failed because execute permission was missing
+T3: renaming the file to .py changed nothing about how the OS executes it
+T3: file extensions are actually used by humans and some programs, not by the OS to decide how to execute a file
+T4 prediction: a file called ls in ~/nst/bin will be run instead of the normal ls
+T4: nst-info failed from /tmp because ~/nst/bin was not in PATH
+T4: the full path worked because it directly specified the file location
+T4: PATH is searched from left to right and stops at the first match
+T4: my fake ls took over because ~/nst/bin was first in PATH
+T4: the PATH change vanished in a new terminal because export only changed the current shell session
+EXIT 1: a file has -rw-r--r--. running ./file does permission denied and the one command that fixes it is chmod +x file
+EXIT 2: python3 script works but ./script says permission denied. explained to a friend: Python only needs to read the script, while ./script requires execute permission
+EXIT 3: PATH worked yesterday, gone this morning, nobody touched the file. what happened: PATH was exported only in the previous terminal session
+EXIT 4: one prediction I got wrong today, and what I learned from it: I learned that file extensions do not determine whether the OS can execute a file
