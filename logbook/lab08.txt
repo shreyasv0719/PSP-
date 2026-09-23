@@ -1,0 +1,4 @@
+We studied number system in which we covered :
+Binary 
+Hex
+RGB colour
